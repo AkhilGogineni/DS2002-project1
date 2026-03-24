@@ -1,4 +1,6 @@
+# use hotel_dw as our destination database
 USE hotel_dw;
+
 
 DROP TABLE IF EXISTS dim_date;
 CREATE TABLE dim_date(
