@@ -20,7 +20,7 @@ MySQL data mart `hotel_dw` containing 5 tables: `dim_guests`, `dim_hotels`, `dim
 
 ## Process
 1. Split up CSV file into seperate tables (guests, hotels, room_types, other columns to build fact_table) - Done with the help from Claude Sonnet 4.6 
-2. Load the different tables into their respective sources. (Shown above under Source Systems)
+2. Convert (to JSON/SQL/leave as CSV) and load the different tables into their respective sources. (Shown above under Source Systems)
 3. Create Dimension Tables
 4. Load Tables into destination database
 5. Create Fact Table
