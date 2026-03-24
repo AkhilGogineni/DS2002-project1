@@ -9,22 +9,22 @@ Hotel Booking Demand dataset (https://www.kaggle.com/datasets/jessemostipak/hote
 Originial data set is 119,390 records sampled down to ~3,000 rows using proportional random sampling across two hotel types for a more manageable dataset to work with.
 
 ## Source Systems
-| Source | Type | Contents |
-|--------|------|----------|
-| MySQL `hotel_src.guests` | Relational DB | Guest data |
-| MongoDB `hotel_bookings_db.hotels` | NoSQL | Hotel attributes |
-| `data/room_types_clean.csv` | File System | Room type & meal combinations |
+| Source | Contents |
+|--------|----------|
+| MySQL `hotel_src.guests` | Guest data |
+| MongoDB `hotel_bookings_db.hotels` | Hotel attributes |
+| `data/room_types_clean.csv` | Room type & meal combinations |
 
 ## Destination
-MySQL data mart `hotel_dw` containing 5 tables:
+MySQL data mart `hotel_dw` containing 5 tables: `dim_guests`, `dim_hotels`, `dim_rooms`, `dim_date`, `fact_bookings`
 
-| Table | Type | Description |
-|-------|------|-------------|
-| `dim_date` | Dimension | Date |
-| `dim_guests` | Dimension | Guest data |
-| `dim_hotels` | Dimension | Hotel & booking attributes |
-| `dim_rooms` | Dimension | Room type & meal plan combinations |
-| `fact_bookings` | Fact | Booking transactions |
+## Process
+1. Split up CSV file into seperate tables (guests, hotels, room_types, other columns to build fact_table) - Done with the help from Claude Sonnet 4.6 
+2. Load the different tables into their respective sources. (Shown above under Source Systems)
+3. Create Dimension Tables
+4. Load Tables into destination database
+5. Create Fact Table
+6. Verify with SQL Queries
 
 ## Deployment
 ### Prerequisites
